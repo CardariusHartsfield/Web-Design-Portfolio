@@ -1,0 +1,288 @@
+
+
+/* THIS CSS IS FOR CONTENT RELATIVE TO ALL WEBSITES */
+
+ body {
+     background-image: radial-gradient(#8E0E00, #1F1C18);
+     background-size: 100% 100%;
+     font-family: "kalnia";
+     
+ }
+
+ /* Start of Top Border */
+
+ .header_Home {
+     background-color: #F5F5F5;
+     font-family: "kalnia";
+     font-size: small;
+     width: 100%;
+     height: 12vh;
+     overflow: hidden;
+     opacity: 60%;
+     z-index: 2;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     position: relative;
+ }
+
+ #barber_Logo {
+     width: 20vh;
+     width: 5%;
+     max-height: 10vh;;
+     height: auto;
+     margin-left: 2ex;
+     opacity: 0;
+     position: relative;
+     animation: fadeInLeft 1s forwards;
+ }
+
+ .header_Links {
+     display: grid;
+     grid-template-columns: repeat(4, 5fr);
+     opacity: 0;
+     animation: fadeInLinks 1.5s forwards;
+ }
+
+ .header_Links a {
+     text-decoration: none;
+     color: inherit;
+     cursor: grab;
+     margin-right: .8cm;
+     transition: transform 0.3s ease, color 0.3s ease;
+     /* Smooth transition for scaling and color */
+ }
+
+ .header_Links a:hover {
+     text-decoration: underline;
+     color: #8E0E00;
+     transform: scale(1.1);
+     /* Scale up the link when hovered */
+ }
+
+ @keyframes fadeInLeft {
+     0% {
+         transform: translateX(-100%);
+         opacity: 0;
+     }
+
+     100% {
+         transform: translateX(0);
+         opacity: 1;
+     }
+ }
+
+ @keyframes fadeInLinks {
+     0% {
+         transform: translateX(100%);
+         opacity: 0;
+     }
+
+     100% {
+         transform: translateX(0);
+         opacity: 1;
+     }
+ }
+
+
+/* FOOTER ITEMS */
+
+#location_Shop_Border {
+    font-family: "Kalnia", sans-serif;
+    width: 100%;
+    max-width: 100vw;
+    height: auto;
+    background-color: #F5F5F5;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 3.5fr 2fr 1.5fr;
+    align-items: center;
+    margin-top: 2cqmax;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+   
+}
+
+#location_Shop_Border.show {
+    opacity: 60% !important;
+    transform: translateY(0) !important;
+}
+
+#location_Shop_Border a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#location_Address {
+    margin-left: 5ch;
+}
+
+#location_Address h6 {
+    margin-left: 15cqb;
+}
+
+#shop_Hours h6 {
+    margin-left: 10cqb;
+}
+
+#location_Address p,
+#shop_Hours p {
+    font-size: small;
+    line-height: 1.2ch;
+}
+
+/* Animation Effects */
+#location_Shop_Border #location_Address,
+#location_Shop_Border #shop_Hours,
+#location_Shop_Border img {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+#location_Shop_Border.show #location_Address,
+#location_Shop_Border.show #shop_Hours,
+#location_Shop_Border.show img {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 1s;
+}
+
+/* Footer */
+#border_Line {
+    border-top: 3px solid #F5F5F5;
+    padding-top: 25px;
+}
+
+.footer_container {
+    width: 100%;
+    margin-right: 10%;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 40%;
+    margin: 0 auto;
+}
+
+.social_media_buttons_left,
+.social_media_buttons_right {
+    display: flex;
+    gap: 5px;
+}
+
+footer .social_media_buttons_left img,
+footer .social_media_buttons_right img {
+    width: 50px;
+    height: 50px;
+}
+
+.footer_Links {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.footer_Links a {
+    color: #F5F5F5;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.footer_Links a:hover {
+    text-decoration: underline;
+}
+/* END OF FOOTER */
+
+button {
+    background: none;
+    border: none;
+}
+
+
+/* MEDIA RESPONSIVENESS */
+
+@media screen and (max-width: 768px) {
+
+    /* HEADER */
+    .header_Home {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    #barber_Logo {
+        width: 80px;
+        height: auto;
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .header_Links {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        justify-items: center;
+    }
+
+    .header_Links a {
+        margin: 5px 0;
+        font-size: 14px;
+    }
+
+    /* FOOTER TOP SECTION */
+    #location_Shop_Border {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 20px;
+    }
+
+    #location_Address,
+    #shop_Hours {
+        margin-left: 0;
+    }
+
+    #location_Address h6,
+    #shop_Hours h6 {
+        margin-left: 0;
+    }
+
+    #location_Address p,
+    #shop_Hours p {
+        font-size: 14px;
+    }
+
+    /* FOOTER BOTTOM SECTION */
+    footer {
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .footer_container {
+        margin-right: 0;
+    }
+
+    .social_media_buttons_left,
+    .social_media_buttons_right {
+        justify-content: center;
+    }
+
+    .footer_Links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer_Links a {
+        font-size: 14px;
+    }
+
+    .social_media_buttons_left img,
+    .social_media_buttons_right img {
+        width: 40px;
+        height: 40px;
+    }
+}
