@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html id="Main" lang="en-US">
+  <head>
+  <meta charset="UTF-8">
+  <title>Barbershop_Website</title>
+<link rel="stylesheet" href= "barber_website.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kalnia:wght@100..700&display=swap" rel="stylesheet">
+
+<style>
+
+.service_Menu{
+    background-color: #F5F5F5;
+    opacity: 60%;
+    width: 60%;
+    margin-top: 5%;
+    margin-left: 20%;
+   border-radius: 50px;   
+}
+
+.service_Container{
+display: grid;
+grid-template-columns: 2fr 1fr; 
+}
+
+.service_Item{
+    font-size: small;
+    margin-left: 5%;
+   margin-bottom: 5.5ch;
+}
+
+/* START OF REVIEWS */
+
+.review_Section {
+    color: #F5F5F5;
+    display: grid;
+    grid-template-rows: .2fr 1fr 1fr 1fr .2fr;
+    justify-items: center;
+    margin-top: 4ic;
+    opacity: 0; 
+    transform: translateY(30px); 
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reviews {
+    transition: opacity 0.5s ease, filter 0.5s ease;
+    opacity: 0; 
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.review_One {
+    width: 700px;
+    filter: blur(2.5px);
+    opacity: 30%;
+}
+
+.review_Main {
+    width: 820px;
+    filter: none;
+    opacity: 100%;
+}
+
+.review_Three {
+    width: 700px;
+    filter: blur(2.5px);
+    opacity: 30%;
+}
+
+.review_Section.show {
+    opacity: 1;
+    transform: translateY(0); 
+}
+
+.reviews.show {
+    opacity: 1;
+    transform: translateY(0); 
+}
+
+.review_Section h4 {
+    text-align: center;
+}
+
+.review_Arrows {
+    margin-top: 60%;
+}
+
+.arrow_Buttons {
+    cursor: pointer;
+}
+
+.arrow_Buttons button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.arrow_Buttons button:hover {
+    transform: scale(1.2);
+}
+
+.arrow_Buttons img {
+    transition: transform 0.3s ease;
+}
+
+.arrow_Buttons button:hover img {
+    transform: scale(.8);
+}
+
+/* ====== MOBILE RESPONSIVENESS ====== */
+@media screen and (max-width: 768px) {
+    .service_Menu {
+        width: 90%;
+        margin-left: 5%;
+        border-radius: 30px;
+    }
+
+    .service_Container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service_Item {
+        margin-left: 10%;
+        font-size: 0.9rem;
+    }
+
+    .review_One,
+    .review_Main,
+    .review_Three {
+        width: 90%;
+        max-width: 100%;
+    }
+
+    .review_Arrows {
+        margin-top: 10%;
+    }
+}
+
+/* END OF REVIEWS */
+
+/* WELCOME Portion */
+
+  .welcome {
+    width: 800px;
+    color: #F5F5F5;
+    text-align: center;
+    text-indent: 5ch;
+    margin: 0 auto;  
+    padding: 0 20px;  
+}
+
+
+/* PHOTO_SHOOT */
+#barber_Title {
+    text-align: center;
+    color: #F5F5F5;
+    font-size: xx-large;
+    margin-bottom: 2ic;
+   opacity: 1;
+}
+
+
+
+.workers_Container{
+   display: grid;
+   grid-template-columns: 2fr 1fr;
+}
+
+/* Salon Names */
+
+.salon_Curators h3  {
+margin-left: 9ic;
+color: #F5F5F5;
+position: static;
+}
+
+.salon_Curators .photoshoot{
+
+margin-right: 20ic;
+}
+
+.barber_Curators{
+    margin-left: 18ic;
+}
+
+/* BARBER WORKERS */
+.barber_Curators h3 {
+    margin-left: 10ic;
+    color: #F5F5F5;
+    position: static;
+}
+
+.barber_Curators .photoshoot {
+
+    margin-left: 2ic;
+}
+
+                                                                                /* ANIMATION */
+
+    h1 {
+            text-align: center;
+            color:#F5F5F5 ;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+            font-size: 2rem;
+            letter-spacing: 2rem;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+
+        /* SERVICE ANIMATIONS */
+
+        .service_Menu {
+    background-color: #F5F5F5;
+    opacity: 0; 
+    width: 60%;
+    margin-top: 5%;
+    margin-left: 20%;
+    border-radius: 50px;
+    transform: translateY(30px); 
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.service_Container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.service_Item {
+    font-size: small;
+    margin-left: 5%;
+    margin-bottom: 5ch;
+}
+
+
+.service_Menu.show {
+    opacity: 60%;
+    transform: translateY(0);
+}
+
+
+/* WELCOME ANIMATIONS  */
+
+.welcome {
+    width: 800px;
+    color: #F5F5F5;
+    text-align: center;
+    text-indent: 5ch;
+    margin: 0 auto;
+    padding: 20px;
+    opacity: 0; 
+    transform: translateY(30px); 
+    transition: opacity 0.8s ease, transform 0.8s ease; 
+}
+
+.welcome.show {
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+
+/* BARBER ANIMATIONS */
+
+.workers_Container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    opacity: 0; 
+    transition: opacity 1s ease; 
+}
+
+.barber_Curators .photoshoot img, .salon_Curators img {
+    width: 400px;        
+    height: 250px;       
+    object-fit: cover;   
+    object-position: top;
+    border-radius: 10px; 
+    display: block;
+    margin: 0 auto;      
+}
+
+.workers_Container.show {
+    opacity: 1; 
+}
+
+
+
+
+</style>
+
+</head>
+
+  <body>
+    
+                                                                            <!-- START TOP BORDER  -->
+<div class="header_Home">
+<img id="barber_Logo" src="barber_website_photos/Social_Media_Logo/Barber_Logo.png">
+
+<div class="header_Links" id="header_Links">
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="about_us.html">About Us</a>
+<a href="book_now.html">Book Now</a>
+</div>
+</div>
+
+                                                                            <!-- END TOP BORDER -->
+
+<h1 id="home_Title">Strictly Skillz</h1>
+
+                                                                            <!-- Start of service_Menu -->
+<div class="service_Menu">
+    <h2 style="text-align: center;">Service Prices</h2>
+
+    <!-- Start of service_Container -->
+    <div class="service_Container">
+
+            <!-- Barber service_Item  -->
+            <div class="service_Item" style="margin-left: 8%;">
+                <h4 style="font-size: large; ">Haircut:</h4>
+                <p>Fade/Taper Cut - $30</p>
+                <p>Head Shave - $20</p>
+                <p>Beard Trim - $15</p>
+                <p>Beard Trim + Line-Up - $20</p>
+                <p>Hair Treatment - $40</p>
+                <p>Full Grooming Package (Haircut + Beard Trim) - $50</p>
+            <!-- End of Barber service_Item  -->
+            </div>
+
+            <!-- Salon service_Item -->
+            <div class="service_Item">
+                <h4 style="font-size: large;">Salon:</h4>
+                <p>Women's Haircut - $50</p>
+                <p>Deep Conditioning Treatment - $30</p>
+                <p>Keratin Smoothing Treatment - $250</p>
+                <p>Brazilian Blowout- $200</p>
+                <p>Scalp Detox Treatment - $40</p>
+                <p>Shampoo & Style - $45</p>
+            <!-- End of Salon service_Item -->
+            </div>
+
+<!-- End of service_Container -->
+    </div>
+
+                                                                    <!-- End of service_Menu -->
+</div>
+
+                                                                    <!-- Start Of REVIEWS -->
+
+<div class="review_Section">
+    <span class="arrow_Buttons"><button><img
+                src="barber_website_photos/Review_Arrow_Buttons/Up_Arrow.png"></button></span>
+
+    <div class="review_One reviews">
+        <h4>"⭐⭐⭐⭐⭐ "Best Salon in Town!"</h4>
+        <p>
+            "I had an amazing experience at this salon! Sara did an incredible job with my haircut and made sure I left feeling
+            confident and refreshed. The atmosphere was elegant, and the staff was super friendly—I’ll definitely be coming back!" - Olivia R. 
+        </p>
+    </div>
+
+    <div class="review_Main reviews">
+        <h4>"⭐⭐⭐⭐⭐ Top-Notch Cuts Every Time!"</h4>
+        <p>
+            "I’ve been a regular here for over a year, and the experience is always top-notch! The barbers are skilled,
+            professional, and pay close attention to detail. The shop has a great vibe, and everyone is welcoming. I
+            always leave with a fresh, clean cut. Highly recommend!" – Mark D.
+        </p>
+    </div>
+
+    <div class="review_Three reviews">
+        <h4>⭐⭐⭐⭐⭐ "Consistently Excellent Haircuts!"</h4>
+        <p>
+            "I've been coming here for over a year, and every visit has been outstanding! The barbers are highly
+            skilled, pay attention to detail, and create a welcoming atmosphere. They truly listen to what you want and deliver
+            flawless fades every time. Highly recommend!" – Alex R.
+        </p>
+    </div>
+
+    <span class="arrow_Buttons"><button><img
+                src="barber_website_photos/Review_Arrow_Buttons/Down_Arrow.png"></button></span>
+    </div>
+                                                            <!-- End of REVIEWS -->
+
+
+
+                                                            <!-- WELCOME PARAGRAPH -->
+
+<div class="welcome">
+    <p style="text-align: center;">Welcome to Strictly Stylez – Where Style Meets Precision!</p>
+    <P style="display: block; padding: 15px; ">At Strictly Stylez, we don’t just cut hair—we craft confidence. Our team of skilled barbers specializes in precision
+    fades, sharp line-ups, and fresh styles tailored just for you. Whether you’re after a classic cut, a modern look, or a
+    beard trim that turns heads, we’ve got you covered. Step into a shop where tradition meets trend, where every haircut is
+    more than just a service—it’s an experience. Enjoy a laid-back atmosphere, great conversation, and top-notch grooming
+    that keeps you looking your best. Walk-ins welcome, appointments recommended. Look Sharp. Feel Fresh. Stay Confident.
+    </P>
+    <p>📅 Book Your Cut Today!</p>
+</div>
+
+                                                            <!-- END OF WELCOME -->
+
+<!-- MEET THE TEAM -->
+<h1 id="barber_Title">Meet Our Curators!</h1>
+
+<div class="workers_Container">
+
+    <!-- SALON -->
+    <div class="salon_Curators">
+            <div id="veronica_Photoshoot "class="photoshoot">
+                <img src="barber_website_photos/Book_Us_Now_Photos/Hairstylist/Veronica_PhotoShoot.png">
+                <h3>Veroncia</h3>
+            </div>
+    
+            <div id="stephanie_Photoshoot" class="photoshoot">
+                <img src="barber_website_photos/Book_Us_Now_Photos/Hairstylist/Stephanie_PhotoShoot.png">
+                <h3>Stephanie</h3>
+            </div>
+
+            <div id="sara_Photoshoot" class="photoshoot">
+                <img src="barber_website_photos/Book_Us_Now_Photos/Hairstylist/Sara_Photo.png">
+                <h3>Sara</h3>
+            </div>
+        </div>
+
+            <!-- BARBERS -->
+            <div class="barber_Curators">
+                <div id="tay_Photoshoot " class="photoshoot">
+                    <img src="barber_website_photos/Barber_Photos/Tay_PhotoShoot.png">
+                    <h3>Tay</h3>
+                </div>
+            
+                <div id="charles_Photoshoot" class="photoshoot">
+                    <img src="barber_website_photos/Barber_Photos/Charles_PhotoShoot.png">
+                    <h3>Charles</h3>
+                </div>
+            
+                <div id="malachi_Photoshoot" class="photoshoot">
+                    <img src="barber_website_photos/Barber_Photos/Malachi_PhotoShoot.jpg">
+                    <h3>Malachi</h3>
+                </div>
+            </div>
+            <!-- END BARBERS -->
+
+</div>
+
+                                                                                <!--START of FOOTER -->
+<div id="location_Shop_Border">
+
+    <div id="location_Address">
+        <h6>LOCATION</h6>
+        <a
+            href="https://www.google.com/maps/place/Maple+St,+Raleigh,+NC+27610/@35.7824753,-78.6192523,17z/data=!3m1!4b1!4m6!3m5!1s0x89ac5f1eb64f57d5:0x5d775330b4ca2c56!8m2!3d35.782471!4d-78.616672!16s%2Fg%2F1wk6_mww?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D">
+            263 Maple Street, Raleigh, NC 27601</a>
+
+    </div>
+
+    <img src="barber_website_photos/Social_Media_Logo/Barber_Logo.png">
+
+        <div id="shop_Hours">
+        <h6>Shop Hours</h6>
+        <p>Monday-Friday 6:00 a.m - 9:45 p.m</p>
+        <p>Saturday: 9:00 a.m -5:15 p.m</p>
+        <p>Sunday: 9:00 a.m - 1:00 p.m</p>
+        </div>
+
+</div>
+<div id="border_Line"></div>
+<div class="footer_container">
+    <footer>
+        <!-- SOCIAL BUTTONS -->
+        <div class="social_media_buttons_left">
+            <a href="https://www.instagram.com/"><img
+                    src="barber_website_photos/Social_Media_Logo/Instagram_Logo.png"></a>
+            <a href="https://www.facebook.com/"><img
+                    src="barber_website_photos/Social_Media_Logo/Facebook_logo.png"></a>
+        </div>
+
+        <!-- FOOTER LINKS -->
+        <div class="footer_Links" id="footer_Links">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="about_us.html">About Us</a>
+            <a href="book_now.html">Book Now</a>
+        </div>
+
+        <!-- SOCIAL BUTTONS -->
+        <div class="social_media_buttons_right">
+            <a href="https://www.tiktok.com/explore"><img
+                    src="barber_website_photos/Social_Media_Logo/Tiktok_logo.png"></a>
+            <a href="https://www.youtube.com/"><img src="barber_website_photos/Social_Media_Logo/Youtube_logo.png"></a>
+        </div>
+    </footer>
+</div>
+
+                                                                        <!-- END OF FOOTER -->
+
+<script>
+
+    // ANIMATION
+    document.addEventListener("DOMContentLoaded", function () {
+        // REVIEW CODE
+        const reviews = document.querySelectorAll(".reviews");
+        const [upButton, downButton] = document.querySelectorAll(".arrow_Buttons button");
+
+        let currentIndex = 1; // Start with the main review in the center
+
+        function updateReviews() {
+            reviews.forEach((review, index) => {
+                review.classList.remove("review_Main", "review_One", "review_Three");
+                review.style.opacity = "0";
+
+                if (index === currentIndex) {
+                    review.classList.add("review_Main");
+                    review.style.opacity = "100%";
+                    review.style.filter = "none";
+                } else if (index === currentIndex - 1) {
+                    review.classList.add("review_One");
+                    review.style.opacity = "30%";
+                    review.style.filter = "blur(2.5px)";
+                } else if (index === currentIndex + 1) {
+                    review.classList.add("review_Three");
+                    review.style.opacity = "30%";
+                    review.style.filter = "blur(2.5px)";
+                }
+            });
+        }
+
+        function moveReviews(direction) {
+            currentIndex = direction === "up" ? (currentIndex === 0 ? reviews.length - 1 : currentIndex - 1) :
+                (currentIndex === reviews.length - 1 ? 0 : currentIndex + 1);
+            updateReviews();
+
+            if (direction === "down") {
+                document.querySelector(".review_Section").scrollIntoView({ behavior: 'smooth', block: 'end' });
+            }
+        }
+
+        upButton.addEventListener("click", () => moveReviews("up"));
+        downButton.addEventListener("click", () => moveReviews("down"));
+
+        document.addEventListener("scroll", () => {
+            const reviewSection = document.querySelector(".review_Section");
+            const windowHeight = window.innerHeight;
+
+            if (reviewSection.getBoundingClientRect().top < windowHeight - 50) {
+                reviewSection.classList.add("show");
+            }
+
+            reviews.forEach(review => {
+                if (review.getBoundingClientRect().top < windowHeight - 50) {
+                    review.classList.add("show");
+                }
+            });
+        });
+
+
+        updateReviews();
+
+        // SERVICE script
+        window.onload = function () {
+
+            // Trigger service menu animation on page load
+            const serviceMenu = document.querySelector(".service_Menu");
+            if (serviceMenu) serviceMenu.classList.add("show");
+
+            const homeTitle = document.getElementById("home_Title");
+            if (homeTitle) homeTitle.classList.add("show");
+        };
+    });
+
+
+
+    // WELCOME script
+
+    document.addEventListener("scroll", function () {
+        const welcomeSection = document.querySelector(".welcome");
+        const windowHeight = window.innerHeight;
+        const position = welcomeSection.getBoundingClientRect().top;
+
+        if (position < windowHeight - 50) {
+            welcomeSection.classList.add("show");
+        }
+    });
+
+    // BARBER SCRIPTS
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const workersContainer = document.querySelector(".workers_Container");
+
+        // Create an IntersectionObserver to detect when the workersContainer is in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+            });
+        }, { threshold: 0.3 }); // Trigger when 50% of the element is in view
+
+        // Start observing the workersContainer
+        observer.observe(workersContainer);
+    });
+</script>
+
+  </body>
+
+  
+  <script src="barber_websitejs.js" charset="UTF-8"></script>
+  </html>
+
+  

@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html id="Main" lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Barbershop_Website</title>
+    <link rel="stylesheet" href="barber_website.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalnia:wght@100..700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Common styles for ALL photos */
+        .haircut_Selections span,.barber_Selections span {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .barber_Selections,
+        .haircut_Selections,
+        .salon_Selections,
+        .salon_Services {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 45px;
+            margin-top: 2%;
+        }
+
+.salon_Selections span{
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img {
+    max-height: 250px;
+    max-width: 250px;
+}
+
+/* Left and Right photos */
+
+.left_Photo,.right_Photo{
+    opacity: 20%;
+    margin-top: 40px;
+}
+
+
+.left_Photo img, .right_Photo img{
+    width: 110px;
+    height: 100px;
+    border-radius: 15%;
+    
+}
+
+/* CENTER PHOTO */
+.center_Photo img {
+    width: 200px; 
+    height: 200px;
+    object-fit: cover; 
+    border-radius: 15%;
+}
+
+
+.center_Photo p{
+    font-size:large;
+    
+}
+
+
+/* Style for barber names */
+ .cut_Selections p, .salon_Selections p, .salon_Services p{
+    margin-top: 14px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    color: #F5F5F5;
+}
+
+h2{
+    color: #F5F5F5;
+}
+
+
+/* ARROWS FOR BOOK_NOW */
+.cut_Selections .arrow_Buttons {
+    height: 50px;
+  
+    position: relative;
+    font-size: 24px;
+    color:#F5F5F5;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.1s ease;   
+}
+
+.arrow_Buttons:active {
+    transform: scale(0.3);
+}
+
+.arrow_Buttons {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: -5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+}
+
+.arrow_Buttons:hover {
+    transform: scale(1.2);
+}
+
+.arrow_Buttons:active {
+    transform: scale(1);
+}
+
+/* END ARROWS FOR BOOK_NOW */
+
+/* Default hidden positions */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* Hover Effect for Center */
+.center_Photo {
+    position: relative;
+    display: inline-block;
+}
+
+
+.center_Photo  {
+    border: none;
+    background: transparent;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+}
+
+/* Smooth transition when hovering */
+.center_Photo img {
+    transition: transform 0.3s ease;
+}
+
+/* Scale the image when hovered */
+.center_Photo:hover img {
+    transform: scale(1.1); 
+}
+
+/* Glow outline when option is Selected */
+.outlined {
+  box-shadow: 0 0 15px 5px #F5F5F5;
+  border-radius: 12px;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+/* Animation */
+
+/* Keyframe animations for sliding and fading */
+.carousel-photo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 120px;
+}
+
+/* Lock button layout */
+.arrow_Buttons {
+    flex-shrink: 0;
+}
+
+
+
+
+/* Book NOw Button CSS */
+.oval-button {
+    padding: 12px 30px;
+    border: 2px solid #ccc;
+  background-color: #F5F5F5;
+  color: #333;
+  border-radius: 999px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.oval-button:hover {
+    transform: scale(1.05);
+}
+
+.oval-button:active {
+    transform: scale(0.98);
+    background-color:#8E0E00;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh; 
+}
+
+.disabled {
+    opacity: 0.3;
+    pointer-events: none;
+    filter: grayscale(100%);
+}
+
+#shop_Hours p{
+    color: black;
+    opacity: 65%;
+}
+
+/* ANIMATIONS */
+
+/* Animate fade + slide */
+@keyframes fadeSlideIn {
+    0% {
+        transform: translateX(30%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeSlideOut {
+    0% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-30%);
+        opacity: 0;
+    }
+}
+
+.fade-in {
+    animation: fadeSlideIn 0.5s ease forwards;
+}
+
+.fade-out {
+    animation: fadeSlideOut 0.5s ease forwards;
+}
+
+/* MEDIA RESPONSIVENESS */
+
+@media screen and (max-width: 768px) {
+    /* Stack selections vertically */
+    .barber_Selections,
+    .haircut_Selections,
+    .salon_Selections,
+    .salon_Services {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .left_Photo img,
+    .right_Photo img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .center_Photo img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .center_Photo p {
+        font-size: medium;
+    }
+
+    .cut_Selections p,
+    .salon_Selections p,
+    .salon_Services p {
+        font-size: 11px;
+        margin-top: 10px;
+    }
+
+    .arrow_Buttons {
+        font-size: 20px;
+        margin: 10px;
+    }
+
+    img {
+        max-width: 90%;
+        height: auto;
+    }
+
+    .oval-button {
+        font-size: 14px;
+        padding: 10px 24px;
+    }
+
+    .button-wrapper {
+        height: auto;
+        margin-top: 30px;
+    }
+}
+
+
+</style>
+
+</head>
+
+<body>
+    
+    <!-- START TOP BORDER  -->
+    <div class="header_Home">
+        <img id="barber_Logo" src="barber_website_photos/Social_Media_Logo/Barber_Logo.png">
+        
+    <div class="header_Links" id="header_Links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about_us.html">About Us</a>
+        <a href="book_now.html">Book Now</a>
+    </div>
+</div>
+
+                                                                            <!-- END TOP BORDER -->
+
+
+
+
+<div class="cut_Selections">
+
+                                            <h2 style="text-align: center;">Select Your Hair Technician</h2>
+    
+
+                                            <!-- Selecting The Barber -->
+    <div class="barber_Selections" id="barber_Selections" data-role="barber">
+        <button class="arrow_Buttons carousel-photo">
+            <img src="barber_website_photos/Book_Us_Now_Photos/Left_Arrow_Button.png">
+        </button>
+
+        <span class="left_Photo carousel-photo" onclick="selectBarber('Tay')">
+            <img src="barber_website_photos/Book_Us_Now_Photos/Barbers/Tay.jpg">
+            <p>Tay</p>
+        </span>
+
+        <span class="center_Photo carousel-photo" onclick="selectBarber('Charles')">
+            <img src="barber_website_photos/Barber_Photos/Charles_PhotoShoot.png">
+            <p>Charles</p>
+        </span>
+
+        <span class="right_Photo carousel-photo" onclick="selectBarber('Malachi')">
+            <img src="barber_website_photos/Barber_Photos/Malachi_PhotoShoot.jpg">
+            <p>Malachi</p>
+        </span>
+
+        <button class="arrow_Buttons">
+            <img src="barber_website_photos/Book_Us_Now_Photos/Right_Arrow_Button.png">
+        </button>
+    </div>
+
+                                                            <!-- Choosing the Haircut -->
+    <h2 style="text-align: center;">Choose Your Cut</h2>
+    <div class="haircut_Selections selected">
+        <button class="arrow_Buttons">
+            <img src="barber_website_photos/Book_Us_Now_Photos/Left_Arrow_Button.png">
+        </button>
+
+        <span class="left_Photo carousel-photo" onclick="selectHaircut('Head Trim')">
+            <img src="barber_website_photos/Book_Us_Now_Photos/Haircuts/Head_Trim.jpg">
+            <p>Head Trim</p>
+        </span>
+
+        <span class="center_Photo carousel-photo" onclick="selectHaircut('Fade Taper')">
+            <img src="barber_website_photos/Book_Us_Now_Photos/Haircuts/Fade_Haircut_Photo.png">
+            <p>Fade Taper</p>
+        </span>
+
+        <span class="right_Photo carousel-photo" onclick="selectHaircut('Head Shave')">
+            <img src="barber_website_photos/Book_Us_Now_Photos/Haircuts/bald cut.jpg">
+            <p>Head Shave</p>
+        </span>
+
+        <!-- Hidden Photos in the carousel for the Barber Treatments -->
+        <span class="hidden hidden_Photo1" onclick="selectHaircut('Hair Treatment')">
+            <img src="barber_website_photos/Book_Us_Now_Photos/Haircuts/hair wash.jpg">
+            <p>Hair Treatment</p>
+        </span>
+
+        <span class="hidden hidden_Photo2" onclick="selectHaircut('Beard Trim')">
+            <img src="barber_website_photos/Book_Us_Now_Photos/Haircuts/Beard Trim w Line Up.jpg">
+            <p>Beard Trim</p>
+        </span>
+
+        <span class="hidden hidden_Photo3" onclick="selectHaircut('Full Grooming')">
+            <img
+                src="barber_website_photos/Book_Us_Now_Photos/Haircuts/Full Grooming Package (Haircut + Beard Trim).jpeg">
+            <p>Full Grooming</p>
+        </span>
+
+        <button class="arrow_Buttons">
+            <img src="barber_website_photos/Book_Us_Now_Photos/Right_Arrow_Button.png">
+        </button>
+    </div>
+
+ 
+
+
+    <h2 style="text-align: center;">Select Your Beauty Technician</h2>
+    <div class="salon_Selections" id="salon_Selections">
+    
+        <button class="arrow_Buttons">
+            <img src="barber_website_photos/Book_Us_Now_Photos/Left_Arrow_Button.png">
+        </button>
+    
+        <span class="left_Photo" onclick="selectStylist('Stephanie')">
+            <img src="barber_website_photos/Book_Us_Now_Photos/Hairstylist/Stephanie_PhotoShoot.png">
+            <p>Stephanie</p>
+        </span>
+    
+        <span class="photo_Option center_Photo" onclick="selectStylist('Veronica')">
+            <img src="barber_website_photos/Book_Us_Now_Photos/Hairstylist/Veronica_PhotoShoot.png">
+            <p>Veronica</p>
+        </span>
+    
+        <span class="right_Photo" onclick="selectStylist('Sara')">
+            <img src="barber_website_photos/Book_Us_Now_Photos/Hairstylist/Sara_Photo.png">
+            <p>Sara</p>
+        </span>
+    
+        <button class="arrow_Buttons">
+            <img src="barber_website_photos/Book_Us_Now_Photos/Right_Arrow_Button.png">
+        </button>
+    </div>
+    
+    <h2 style="text-align: center;">Select Your Salon Treatment</h2>
+    <div class="salon_Services">
+    
+        <button class="arrow_Buttons">
+            <img src="barber_website_photos/Book_Us_Now_Photos/Left_Arrow_Button.png">
+        </button>
+    
+        <span class="left_Photo" onclick="selectSalonService('Brazilian Blowout')">
+            <img src="barber_website_photos/Book_Us_Now_Photos/HairStyles/brazilian blowout.png">
+            <p>Brazilian Blowout</p>
+        </span>
+    
+        <span class="photo_Option center_Photo" onclick="selectSalonService('Wig Installment')">
+            <img src="barber_website_photos/Book_Us_Now_Photos/HairStyles/Wig installment.jpg">
+            <p>Wig Installment</p>
+        </span>
+    
+        <span class="right_Photo" onclick="selectSalonService('Deep Condition')">
+            <img src="barber_website_photos/Book_Us_Now_Photos/HairStyles/Deep COndition.jpg">
+            <p>Deep Condition</p>
+        </span>
+    
+
+
+        <!--Hidden Photos in the carousel for the Salon Treatments -->
+        <span class="hidden hidden_Photo1" onclick="selectSalonService(`Women's Haircut`)">
+            <img src="barber_website_photos/Book_Us_Now_Photos/HairStyles/Women's Haircut.png">
+            <p>Women's Haircut</p>
+        </span>
+    
+        <span class="hidden hidden_Photo2" onclick="selectSalonService('Keratin Smoothing')">
+            <img src="barber_website_photos/Book_Us_Now_Photos/HairStyles/Keratin Smoothing Treatment.jpg">
+            <p>Keratin Smoothing</p>
+        </span>
+    
+        <span class="hidden hidden_Photo3" onclick="selectSalonService('Shampoo & Style')">
+            <img src="barber_website_photos/Book_Us_Now_Photos/HairStyles/Shampoo_Style.jpg">
+            <p>Shampoo & Style</p>
+        </span>
+    
+        <button class="arrow_Buttons">
+            <img src="barber_website_photos/Book_Us_Now_Photos/Right_Arrow_Button.png">
+        </button>
+    </div>
+    
+    <div class="button-wrapper">
+        <button class="oval-button" onclick="bookAppointment()">Book Now</button>
+    </div>
+
+
+
+
+
+
+<!--START of FOOTER -->
+<!-- FOOTER -->
+<div id="location_Shop_Border">
+
+    <div id="location_Address">
+        <h6>LOCATION</h6>
+        <a
+            href="https://www.google.com/maps/place/Maple+St,+Raleigh,+NC+27610/@35.7824753,-78.6192523,17z/data=!3m1!4b1!4m6!3m5!1s0x89ac5f1eb64f57d5:0x5d775330b4ca2c56!8m2!3d35.782471!4d-78.616672!16s%2Fg%2F1wk6_mww?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D">
+            263 Maple Street, Raleigh, NC 27601</a>
+
+    </div>
+
+    <img src="barber_website_photos/Social_Media_Logo/Barber_Logo.png">
+
+    <div id="shop_Hours">
+        <h6>Shop Hours</h6>
+        <p>Monday-Friday 6:00 a.m - 9:45 p.m</p>
+        <p>Saturday: 9:00 a.m -5:15 p.m</p>
+        <p>Sunday: 9:00 a.m - 1:00 p.m</p>
+    </div>
+
+</div>
+
+<div id="border_Line"></div>
+<div class="footer_container">
+    <footer>
+        <div class="social_media_buttons_left">
+            <a href="https://www.instagram.com/"><img
+                    src="barber_website_photos/Social_Media_Logo/Instagram_Logo.png"></a>
+            <a href="https://www.facebook.com/"><img
+                    src="barber_website_photos/Social_Media_Logo/Facebook_logo.png"></a>
+        </div>
+
+        <div class="footer_Links" id="footer_Links">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="about_us.html">About Us</a>
+            <a href="book_now.html">Book Now</a>
+        </div>
+
+        <div class="social_media_buttons_right">
+            <a href="https://www.tiktok.com/explore"><img
+                    src="barber_website_photos/Social_Media_Logo/Tiktok_logo.png"></a>
+            <a href="https://www.youtube.com/"><img src="barber_website_photos/Social_Media_Logo/Youtube_logo.png"></a>
+        </div>
+    </footer>
+</div>
+
+
+<script>
+
+    // ARROW BUTTON SCRIPT
+    document.querySelectorAll(".arrow_Buttons").forEach(button => {
+        button.addEventListener("mouseover", () => {
+            button.style.transition = "transform 0.3s ease, box-shadow 0.5s ease";
+            button.style.transform = "scale(1.2)";
+        });
+
+        button.addEventListener("mouseout", () => {
+            button.style.transform = "scale(1)";
+        });
+
+        button.addEventListener("mousedown", () => {
+            button.style.transform = "scale(0.9)";
+        });
+
+        button.addEventListener("mouseup", () => {
+            button.style.transform = "scale(1.2)";
+        });
+    });
+
+    // END ARROW BUTTON SCRIPT
+
+    // ANIMATION
+
+    function setupCarousel(sectionClass) {
+        const section = document.querySelector(`.${sectionClass}`);
+        let photos = Array.from(section.querySelectorAll("span")).filter(span => span.querySelector("img"));
+        const leftBtn = section.querySelectorAll(".arrow_Buttons")[0];
+        const rightBtn = section.querySelectorAll(".arrow_Buttons")[1];
+
+        let index = 1; // Start with the second item as the center
+
+        function updateDisplay() {
+            photos.forEach(span => span.classList.add("hidden"));
+
+            const total = photos.length;
+
+            // Calculate circular indices
+            const leftIndex = (index - 1 + total) % total;
+            const centerIndex = index % total;
+            const rightIndex = (index + 1) % total;
+
+            photos[leftIndex].className = "left_Photo";
+            photos[centerIndex].className = "photo_Option center_Photo";
+            photos[rightIndex].className = "right_Photo";
+        }
+
+        function clearOutline() {
+            section.querySelectorAll("span img").forEach(img => {
+                img.classList.remove("outlined");
+            });
+        }
+
+        leftBtn.addEventListener("click", () => {
+            index = (index - 1 + photos.length) % photos.length;
+            clearOutline();
+            updateDisplay();
+        });
+
+        rightBtn.addEventListener("click", () => {
+            index = (index + 1) % photos.length;
+            clearOutline();
+            updateDisplay();
+        });
+
+        photos.forEach(span => {
+            const img = span.querySelector("img");
+            if (img) {
+                img.addEventListener("click", () => {
+                    // Toggle outlined class
+                    if (img.classList.contains("outlined")) {
+                        img.classList.remove("outlined");
+                    } else {
+                        clearOutline();
+                        img.classList.add("outlined");
+                    }
+                });
+            }
+        });
+
+        updateDisplay();
+    }
+
+    // Apply to all carousels
+    setupCarousel("barber_Selections");
+    setupCarousel("haircut_Selections");
+    setupCarousel("salon_Selections");
+    setupCarousel("salon_Services");
+
+    // Animation
+
+    // Removed auto-adding of 'outlined' on scroll
+    document.querySelectorAll('.barber_Selections, .salon_Selections, .haircut_Selections, .salon_Services').forEach(section => {
+        const photos = Array.from(section.querySelectorAll('span')).filter(el => el.querySelector('img'));
+        const arrows = section.querySelectorAll('.arrow_Buttons');
+
+        let currentIndex = 1;
+
+        function rotateCarousel(direction) {
+            // Remove reset animations only (not outlines)
+            photos.forEach(el => {
+                el.classList.remove('fade-in', 'fade-out');
+                el.classList.add('hidden');
+            });
+
+            if (direction === 'left') {
+                currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+            } else {
+                currentIndex = (currentIndex + 1) % photos.length;
+            }
+
+            // Set visible photos
+            const left = (currentIndex - 1 + photos.length) % photos.length;
+            const center = currentIndex;
+            const right = (currentIndex + 1) % photos.length;
+
+            [left, center, right].forEach(i => photos[i].classList.remove('hidden'));
+            photos[center].classList.add('fade-in');
+
+            // Clear outline when arrows are used
+            section.querySelectorAll("span img").forEach(img => {
+                img.classList.remove("outlined");
+            });
+        }
+
+        arrows[0].addEventListener('click', () => rotateCarousel('left'));
+        arrows[1].addEventListener('click', () => rotateCarousel('right'));
+    });
+
+    // Grey out any selections until barber or Stylist been selected
+    document.addEventListener("DOMContentLoaded", () => {
+        const haircutSection = document.querySelector(".haircut_Selections");
+        const barberSection = document.querySelector(".barber_Selections");
+        const barberPhotos = barberSection.querySelectorAll("span");
+        const arrowButtons = barberSection.querySelectorAll(".arrow_Buttons");
+
+        let selectedBarber = null;
+
+        // Start with haircut disabled
+        haircutSection.classList.add("disabled");
+
+        // Code clicking a barber photo
+        barberPhotos.forEach(photo => {
+            photo.addEventListener("click", () => {
+                if (selectedBarber === photo) {
+                    // Unselect if you click on the  barber again
+                    selectedBarber.classList.remove("selected");
+                    selectedBarber = null;
+                    haircutSection.classList.add("disabled");
+                } else {
+                    // Select new barber from selections
+                    barberPhotos.forEach(p => p.classList.remove("selected"));
+                    photo.classList.add("selected");
+                    selectedBarber = photo;
+                    haircutSection.classList.remove("disabled");
+                }
+            });
+        });
+
+        // Handle clicking arrow buttons (deselecting barber and disable haircut)
+        arrowButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                if (selectedBarber) {
+                    selectedBarber.classList.remove("selected");
+                    selectedBarber = null;
+                    haircutSection.classList.add("disabled");
+                }
+            });
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const stylistSpans = document.querySelectorAll(".salon_Selections span");
+        const salonServiceSpans = document.querySelectorAll(".salon_Services span");
+        const salonServiceSection = document.querySelector(".salon_Services");
+        const stylistArrows = document.querySelectorAll(".salon_Selections .arrow_Buttons");
+
+        let selectedStylist = null;
+
+        // Disable salon services
+        salonServiceSection.classList.add("disabled");
+
+        function clearSalonServiceSelection() {
+            salonServiceSpans.forEach(span => span.classList.remove("selected"));
+        }
+
+        // Handle stylist selection
+        stylistSpans.forEach(span => {
+            span.addEventListener("click", () => {
+                const isAlreadySelected = span.classList.contains("selected");
+
+                stylistSpans.forEach(s => s.classList.remove("selected"));
+
+                if (isAlreadySelected) {
+                    // Deselect the options
+                    selectedStylist = null;
+                    salonServiceSection.classList.add("disabled");
+                    clearSalonServiceSelection();
+                } else {
+                    span.classList.add("selected");
+                    selectedStylist = span;
+                    salonServiceSection.classList.remove("disabled");
+                }
+            });
+        });
+
+        // Remove stylist selection when arrows clicked
+        stylistArrows.forEach(arrow => {
+            arrow.addEventListener("click", () => {
+                stylistSpans.forEach(s => s.classList.remove("selected"));
+                selectedStylist = null;
+                salonServiceSection.classList.add("disabled");
+                clearSalonServiceSelection();
+            });
+        });
+
+        // Handle salon service selection
+        salonServiceSpans.forEach(span => {
+            span.addEventListener("click", () => {
+                if (salonServiceSection.classList.contains("disabled")) return;
+
+                salonServiceSpans.forEach(s => s.classList.remove("selected"));
+                span.classList.add("selected");
+            });
+        });
+    });
+
+    // Redirect to confirmation Page for Barber Selection 
+    let selectedBarber = null;
+    let selectedHaircut = null;
+  let selectedStylist = null;
+    let selectedSalonService = null;
+
+
+    function selectBarber(name) {
+        selectedBarber = name;
+    }
+
+    function selectHaircut(name) {
+        selectedHaircut = name;
+    }
+
+      function selectStylist(name) {
+            selectedStylist = name;
+        }
+
+        function selectSalonService(name) {
+            selectedSalonService = name;
+        }
+
+   function bookAppointment() {
+        if (selectedBarber && selectedHaircut && !selectedStylist && !selectedSalonService) {
+            // Store barber booking
+            localStorage.setItem('barber', selectedBarber);
+            localStorage.setItem('haircut', selectedHaircut);
+
+            // Clear stylist booking
+            localStorage.removeItem('stylist');
+            localStorage.removeItem('salonService');
+
+            window.location.href = 'confirmation.html';
+
+        } else if (selectedStylist && selectedSalonService && !selectedBarber && !selectedHaircut) {
+            // Store stylist booking
+            localStorage.setItem('stylist', selectedStylist);
+            localStorage.setItem('salonService', selectedSalonService);
+
+            // Clear barber booking
+            localStorage.removeItem('barber');
+            localStorage.removeItem('haircut');
+
+            window.location.href = 'confirmation.html';
+
+        } else {
+            alert('Please select either a barber + haircut OR a stylist + salon treatment — not both.');
+        }
+    }
+
+        // Redirect to confirmation page for stylist selections
+
+
+            
+    
+
+</script>
+</body>
+
+
+
+<script src="barber_websitejs.js" charset="UTF-8"></script>
+
+</html>
