@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html id="Main" lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Barbershop_Website</title>
+    <link rel="stylesheet" href="barber_website.css"
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalnia:wght@100..700&display=swap" rel="stylesheet">
+
+<style>
+    body{
+    background-image:radial-gradient(#8E0E00,#1F1C18);
+    background-size: 100% 100%;
+    font-family: "kalnia";
+}
+
+/* Start of Top Border */
+
+
+
+#about_Title h1{
+text-align: center;
+color: #F5F5F5;
+
+}
+
+.about_Paragraph{
+    display: grid;
+    grid-template-columns: 5fr 1fr ;
+    color: #F5F5F5;
+    text-align: left;
+    padding-right: 1%;
+    text-indent: 1cm;
+    line-height: 215%;
+
+}
+
+.about_Reasons{
+    color: #F5F5F5;
+}
+
+
+
+/* ANIMATION */
+/* Initial hidden state */
+/* Initial hidden state */
+#about_Title,
+.about_Paragraph,
+.about_Reasons {
+    opacity: 0;
+    transform: translateY(30px);
+    text-indent: 0px; /* Initial text-indent value */
+    transition: opacity 0.6s ease-out, 
+                transform 0.6s ease-out,
+                text-indent 0.3s ease-in; /* Adding text-indent transition */
+}
+
+#about_Title.show,
+.about_Paragraph.show,
+.about_Reasons.show {
+    opacity: 1;
+    transform: translateY(0);
+    text-indent: 35px; /* Adjust this as needed */
+}
+
+/* Activate when scrolled into view */
+.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* MEDIA RESPONSIVENESS */
+
+@media screen and (max-width: 768px) {
+    .about_Paragraph {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+        text-align: left;
+        text-indent: 20px;
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    #about_Title h1 {
+        font-size: 1.7rem;
+        padding: 0 10px;
+    }
+
+    .about_Reasons {
+        padding: 0 15px;
+        font-size: 1rem;
+        text-align: left;
+    }
+}
+
+</style>
+</head>
+
+<body>
+                                                                    <!-- START TOP BORDER  -->
+    <div class="header_Home">
+        <img id="barber_Logo" src="barber_website_photos/Social_Media_Logo/Barber_Logo.png">
+    
+        <div class="header_Links" id="header_Links">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="about_us.html">About Us</a>
+            <a href="book_now.html">Book Now</a>
+        </div>
+    </div>
+    
+                                                                        <!-- END TOP BORDER -->
+
+
+    <!-- SERVICES -->
+
+    <div id="about_Title">
+        <h1>Discover more about Strictly Skillz</h1>
+    </div>
+
+<p style="color: #F5F5F5; margin-left: 2%;">Step Into Style at STRICLY SKILLZ</p>
+
+    <div class="about_Paragraph">
+        <p class="hidden_text" style="text-indent: 35px;">"At Strictly Skillz, we believe a great haircut is more than just a service—it’s an experience. From the moment you walk
+        through our doors, you’re not just a customer, you’re part of the family. Whether you're looking for a classic cut, a
+        sharp fade, or a perfectly groomed beard, our skilled barbers combine precision, style, and tradition to make sure you
+        leave looking and feeling your best. So grab a seat, enjoy the atmosphere, and let us take care of the rest. Welcome to
+        Strictly Skillz—where every cut tells a story."</p>
+    <img class="hidden-img" src="barber_website_photos/Barber_Photos/Hairdresser_Photo.png">
+    </div>
+
+    <h3 style="text-align: center; color: #F5F5F5;">At Strictly Skillz, we don’t just cut hair—we craft confidence. What makes us different?</h3>
+    
+    <div class="about_Reasons">
+
+        
+        <img src="barber_website_photos/Social_Media_Logo/Clipper Bulletin_1.png"> 
+        <p>Expert Barbers, Unmatched Precision – Our team of highly skilled barbers brings years of experience, blending classic
+        techniques with modern trends. Whether it’s a razor-sharp fade, a classic scissor cut, or the perfect beard shape-up, we
+        know how to deliver a flawless look tailored to you.</p>
+        
+
+        
+        <img src="barber_website_photos/Social_Media_Logo/Clipper Bulletin_1.png">
+        <p>An Experience, Not Just a Haircut – Step into a space where tradition meets style. Our shop is more than just a place to
+        get groomed—it’s a place to relax, unwind, and enjoy great conversation, music, and an atmosphere built for kings.
+        </p>
+        
+
+        
+        <img src="barber_website_photos/Social_Media_Logo/Clipper Bulletin_1.png">
+        </p> 
+        <p>Premium Services, Classic Touch – From precision fades and detailed beard trims to hot towel shaves and personalized
+        styling advice, we go beyond the basics. We take pride in our craft, using top-quality tools and products to ensure
+        every cut is crisp and every shave is smooth.
+        </p>
+        
+        
+       
+        <img src="barber_website_photos/Social_Media_Logo/Clipper Bulletin_1.png">
+        <p>Community & Culture – We’re not just a barbershop; we’re a part of the neighborhood. A place where friendships are made,
+        stories are shared, and style is taken seriously. Whether you're a regular or a first-timer, you'll always feel at home
+        in our chair.
+        </p>
+       
+
+        
+        <img src="barber_website_photos/Social_Media_Logo/Clipper Bulletin_1.png">
+        <p>Your Look, Your Style, Our Expertise – At Strictly Skillz, we don’t do one-size-fits-all cuts. We take the time to
+        understand your style, face shape, and preferences to craft a look that’s uniquely you.
+        </p>
+        
+
+       
+        <img src="barber_website_photos/Social_Media_Logo/Clipper Bulletin_1.png">
+        <p>Come in once, and you’ll never go anywhere else. Book your appointment today or walk in and experience the difference.
+        </p> 
+        
+    </div>
+
+
+<!-- FOOTER -->
+<div id="location_Shop_Border">
+
+    <div id="location_Address">
+        <h6>LOCATION</h6>
+        <a
+            href="https://www.google.com/maps/place/Maple+St,+Raleigh,+NC+27610/@35.7824753,-78.6192523,17z/data=!3m1!4b1!4m6!3m5!1s0x89ac5f1eb64f57d5:0x5d775330b4ca2c56!8m2!3d35.782471!4d-78.616672!16s%2Fg%2F1wk6_mww?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D">
+            263 Maple Street, Raleigh, NC 27601</a>
+
+    </div>
+
+    <img src="barber_website_photos/Social_Media_Logo/Barber_Logo.png">
+
+    <div id="shop_Hours">
+        <h6>Shop Hours</h6>
+        <p>Monday-Friday 6:00 a.m - 9:45 p.m</p>
+        <p>Saturday: 9:00 a.m -5:15 p.m</p>
+        <p>Sunday: 9:00 a.m - 1:00 p.m</p>
+    </div>
+
+</div>
+
+<div id="border_Line"></div>
+<div class="footer_container">
+    <footer>
+        <div class="social_media_buttons_left">
+            <a href="https://www.instagram.com/"><img
+                    src="barber_website_photos/Social_Media_Logo/Instagram_Logo.png"></a>
+            <a href="https://www.facebook.com/"><img
+                    src="barber_website_photos/Social_Media_Logo/Facebook_logo.png"></a>
+        </div>
+
+        <div class="footer_Links" id="footer_Links">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="about_us.html">About Us</a>
+            <a href="book_now.html">Book Now</a>
+        </div>
+
+        <div class="social_media_buttons_right">
+            <a href="https://www.tiktok.com/explore"><img
+                    src="barber_website_photos/Social_Media_Logo/Tiktok_logo.png"></a>
+            <a href="https://www.youtube.com/"><img src="barber_website_photos/Social_Media_Logo/Youtube_logo.png"></a>
+        </div>
+    </footer>
+</div>
+   
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const elements = document.querySelectorAll("#about_Title, .about_Paragraph, .about_Reasons");
+
+        function revealOnScroll() {
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.85 && !el.classList.contains("animate")) {
+                    el.classList.add("animate");
+                }
+            });
+        }
+
+        window.addEventListener("scroll", revealOnScroll);
+        revealOnScroll(); // Run initially to check already visible elements
+    });
+
+    document.addEventListener("scroll", function () {
+        const aboutReasons = document.querySelector('.about_Reasons');
+
+        // Trigger the animation when the user is near the bottom 
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 600) {
+            if (aboutReasons) {
+                // Add 'show' css class to trigger animation
+                aboutReasons.classList.add('show');
+            }
+        }
+    });
+</script>
+</body>
+
+
+
+<script src="barber_websitejs.js" charset="UTF-8"></script>
+
+</html>
